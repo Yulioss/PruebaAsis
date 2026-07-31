@@ -15,17 +15,21 @@ export default function AppRoutes() {
             <Route path="/" element={<Login />} />
 
             <Route element={<PrivateRoute />}>
-{/*
-                <Route path="/" element={<Navigate to="/products" />} />
 
-                <Route path="/products" element={<ProductList />} />
+                <Route element={<MainLayout />}>
+                {/*
+                    <Route path="/" element={<Navigate to="/products" />} />
 
-                <Route path="/products/new" element={<CreateProduct />} />
+                    <Route path="/products" element={<ProductList />} />
 
-                <Route path="/products/:id" element={<ProductDetail />} />
+                    <Route path="/products/new" element={<CreateProduct />} />
 
-                <Route path="/products/edit/:id" element={<EditProduct />} />
-*/}
+                    <Route path="/products/:id" element={<ProductDetail />} />
+
+                    <Route path="/products/edit/:id" element={<EditProduct />} />
+                */}
+                </Route>
+
             </Route>
 
         </Routes>
