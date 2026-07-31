@@ -1,4 +1,4 @@
-import axiosClient from "./axiosClient";
+import axiosClient from "../../../app/api/axiosClient";
 
 export const getProducts=(params)=>{
 

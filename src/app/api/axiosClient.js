@@ -2,7 +2,7 @@ import axios from "axios";
 
 const axiosClient = axios.create({
 
-    baseURL: "https://localhost:7024/api"
+    baseURL: "https://localhost:7180/api"
 });
 
 axiosClient.interceptors.request.use(config => {
@@ -15,6 +15,7 @@ axiosClient.interceptors.request.use(config => {
     }
 
     return config;
-});
+},
+(error) => Promise.reject(error));
 
 export default axiosClient;
