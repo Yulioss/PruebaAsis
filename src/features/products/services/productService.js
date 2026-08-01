@@ -43,7 +43,7 @@ export const deleteProduct = async (id) => {
 export const generateProducts = async (quantity) => {
 
     const response = await axiosClient.post(
-        "/Product/bulk-generate",
+        "/Product/Generate",
         {
             quantity
         });

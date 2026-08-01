@@ -10,6 +10,7 @@ import ProductSearch from "../components/ProductSearch";
 import Pagination from "../components/Pagination";
 import ProductModal from "../components/ProductModal";
 import DeleteProductModal from "../components/DeleteProductModal";
+import GenerateProductsModal from "../components/GenerateProductsModal";
 import { getCategories } from "../../categories/services/categoryService";
 import { getSuppliers } from "../../suppliers/services/supplierService";
 
@@ -36,6 +37,8 @@ function ProductList() {
     const [categories, setCategories] = useState([]);
 
     const [suppliers, setSuppliers] = useState([]);
+
+    const [showGenerateModal, setShowGenerateModal] = useState(false);
 
     useEffect(() => {
 
@@ -133,6 +136,18 @@ function ProductList() {
 
     };
 
+    const handleGenerateClose = () => {
+
+    setShowGenerateModal(false);
+
+    };
+
+    const handleGenerated = async () => {
+
+    await loadProducts();
+
+    };
+
     const confirmDelete = async () => {
 
         try {
@@ -171,7 +186,18 @@ function ProductList() {
 
                 </button>
 
+                
+
             </div>
+            <div className="d-flex justify-content-end mb-3">
+                <button
+                    className="btn btn-success"
+                    onClick={() => setShowGenerateModal(true)}
+                >
+                    Generar productos
+                </button>
+            </div>
+            
 
             <ProductSearch
 
@@ -245,6 +271,12 @@ function ProductList() {
 
                 onConfirm={confirmDelete}
 
+            />
+
+            <GenerateProductsModal
+                show={showGenerateModal}
+                onClose={handleGenerateClose}
+                onGenerated={handleGenerated}
             />
 
         </>
