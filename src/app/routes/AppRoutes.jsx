@@ -1,7 +1,8 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 
 import Login from "../../features/auth/pages/Login";
-//import ProductList from "../../features/products/pages/ProductList";
+import MainLayout from "../../shared/layout/Mainlayout";
+import ProductList from "../../features/products/pages/ProductList";
 //import ProductDetail from "../../features/products/pages/ProductDetail";
 //import CreateProduct from "../../features/products/pages/CreateProduct";
 //import EditProduct from "../../features/products/pages/EditProduct";
@@ -17,6 +18,7 @@ export default function AppRoutes() {
             <Route element={<PrivateRoute />}>
 
                 <Route element={<MainLayout />}>
+                <Route path="/products" element={<ProductList />} />
                 {/*
                     <Route path="/" element={<Navigate to="/products" />} />
 

@@ -11,7 +11,7 @@ function MainLayout() {
 
         logout();
 
-        navigate("/login");
+        navigate("/");
     };
 
     return (

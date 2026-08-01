@@ -1,38 +1,52 @@
 import axiosClient from "../../../app/api/axiosClient";
 
-export const getProducts=(params)=>{
+const productService = {
+    
+}
+export const getProducts = async (params) => {
 
-    return axiosClient.get("/Product",{
-
+    const response = await axiosClient.get("/Product", {
         params
     });
-}
 
-export const getProduct=id=>{
+    return response.data;
+};
 
-    return axiosClient.get(`/Product/${id}`);
-}
+export const getProduct = async (id) => {
 
-export const createProduct=data=>{
+    const response = await axiosClient.get(`/Product/${id}`);
 
-    return axiosClient.post("/Product",data);
-}
+    return response.data;
+};
 
-export const updateProduct=(id,data)=>{
+export const createProduct = async (data) => {
 
-    return axiosClient.put(`/Product/${id}`,data);
-}
+    const response = await axiosClient.post("/Product", data);
 
-export const deleteProduct=id=>{
+    return response.data;
+};
 
-    return axiosClient.delete(`/Product/${id}`);
-}
+export const updateProduct = async (id, data) => {
 
-export const generateProducts=quantity=>{
+    const response = await axiosClient.put(`/Product/${id}`, data);
 
-    return axiosClient.post(
-    "/Product/bulk-generate",
-    {
-        quantity
-    });
-}
+    return response.data;
+};
+
+export const deleteProduct = async (id) => {
+
+    const response = await axiosClient.delete(`/Product/${id}`);
+
+    return response.data;
+};
+
+export const generateProducts = async (quantity) => {
+
+    const response = await axiosClient.post(
+        "/Product/bulk-generate",
+        {
+            quantity
+        });
+
+    return response.data;
+};

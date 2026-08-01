@@ -21,6 +21,14 @@ function Login() {
 
     const [error, setError] = useState("");
 
+    const [showPassword, setShowPassword] = useState(false);
+
+    const togglePassword = () => {
+
+    setShowPassword(previous => !previous);
+
+};
+
     const handleChange = (e) => {
 
         setForm({
@@ -124,21 +132,31 @@ function Login() {
 
                                     </label>
 
-                                    <input
+                                    <div className="input-group">
 
-                                        type="password"
+                                        <input
+                                            type={showPassword ? "text" : "password"}
+                                            className="form-control"
+                                            value={form.password}
+                                            onChange={handleChange}
+                                            name="password"
+                                        />
 
-                                        name="password"
+                                        <button
+                                            type="button"
+                                            className="btn btn-outline-secondary"
+                                            onClick={togglePassword}
+                                        >
+                                            <i
+                                                className={
+                                                    showPassword
+                                                        ? "bi bi-eye-slash"
+                                                        : "bi bi-eye"
+                                                }
+                                            />
+                                        </button>
 
-                                        className="form-control"
-
-                                        value={form.password}
-
-                                        onChange={handleChange}
-
-                                        required
-
-                                    />
+                                    </div>
 
                                 </div>
 
